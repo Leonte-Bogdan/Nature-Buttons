@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nature Button Library Demo</title>
+    <style>
+        /* Include the nature-buttons.css file in your project */
+        /* For demo purposes, I'll include it inline */
+        
+        /* =================================
+           NATURE BUTTON LIBRARY v1.0
+           ================================= */
+
+        .nature-btn {
+            position: relative;
+            padding: 12px 24px;
+            background: #ffffff;
+            border: 2px solid #4CAF50;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 500;
+            color: #2E7D32;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            overflow: hidden;
+            user-select: none;
+            box-shadow: 0 4px 15px rgba(76, 175, 80, 0.2);
+            font-family: inherit;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+            min-width: 120px;
+            margin: 10px;
+        }
+
+        .nature-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(76, 175, 80, 0.3);
+            border-color: #66BB6A;
+            text-decoration: none;
+            color: #2E7D32;
+        }
+
+        .nature-btn:active {
+            transform: translateY(0);
+            box-shadow: 0 4px 15px rgba(76, 175, 80, 0.2);
+        }
+
+        /* Size Variants */
+        .nature-btn.small {
+            padding: 8px 16px;
+            font-size: 0.875rem;
+            min-width: 80px;
+        }
+
+        .nature-btn.large {
+            padding: 16px 32px;
+            font-size: 1.125rem;
+            min-width: 160px;
+        }
+
+        /* Color Variants */
+        .nature-btn.primary {
+            background: #4CAF50;
+            color: white;
+            border-color: #4CAF50;
+        }
+
+        .nature-btn.primary:hover {
+            background: #66BB6A;
+            border-color: #66BB6A;
+            color: white;
+        }
+
+        .nature-btn.secondary {
+            background: transparent;
+            color: #4CAF50;
+            border-color: #4CAF50;
+        }
+
+        /* Sparkle Effects */
+        .nature-btn::before,
+        .nature-btn::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: #FFD700;
+            border-radius: 50%;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .nature-btn::before {
+            top: 20%;
+            right: 20%;
+            animation: sparkle-1 1.5s ease-in-out infinite;
+        }
+
+        .nature-btn::after {
+            bottom: 20%;
+            left: 20%;
+            animation: sparkle-2 1.5s ease-in-out infinite 0.3s;
+        }
+
+        .nature-btn:hover::before,
+        .nature-btn:hover::after {
+            opacity: 1;
+        }
+
+        /* SUN THEME */
+        .nature-btn.sun {
+            border-color: #FF9800;
+            color: #E65100;
+        }
+
+        .nature-btn.sun:hover {
+            border-color: #FFB74D;
+            box-shadow: 0 8px 25px rgba(255, 152, 0, 0.3);
+        }
+
+        .nature-btn.sun::before {
+            content: '☀️';
+            width: auto;
+            height: auto;
+            background: none;
+            font-size: 16px;
+            top: -8px;
+            right: -8px;
+            opacity: 0;
+            transform: scale(0) rotate(0deg);
+            transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        .nature-btn.sun:hover::before {
+            opacity: 1;
+            transform: scale(1) rotate(180deg);
+        }
+
+        .nature-btn.sun::after {
+            content: '✨';
+            width: auto;
+            height: auto;
+            background: none;
+            font-size: 12px;
+            bottom: -5px;
+            left: -5px;
+            animation-delay: 0.2s;
+        }
+
+        /* FLOWER THEME */
+        .nature-btn.flower {
+            border-color: #E91E63;
+            color: #AD1457;
+        }
+
+        .nature-btn.flower:hover {
+            border-color: #F06292;
+            box-shadow: 0 8px 25px rgba(233, 30, 99, 0.3);
+        }
+
+        .nature-btn.flower::before {
+            content: '🌸';
+            width: auto;
+            height: auto;
+            background: none;
+            font-size: 16px;
+            bottom: -8px;
+            left: -8px;
+            transform: scale(0);
+            transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.1s;
+        }
+
+        .nature-btn.flower:hover::before {
+            opacity: 1;
+            transform: scale(1);
+            animation: flower-sway 2s ease-in-out infinite alternate;
+        }
+
+        .nature-btn.flower::after {
+            content: '✨';
+            width: auto;
+            height: auto;
+            background: none;
+            font-size: 10px;
+            top: 10%;
+            right: 15%;
+        }
+
+        /* LEAF THEME */
+        .nature-btn.leaf {
+            border-color: #8BC34A;
+            color: #558B2F;
+        }
+
+        .nature-btn.leaf:hover {
+            border-color: #AED581;
+            box-shadow: 0 8px 25px rgba(139, 195, 74, 0.3);
+        }
+
+        .nature-btn.leaf::before {
+            content: '🍃';
+            width: auto;
+            height: auto;
+            background: none;
+            font-size: 16px;
+            top: 50%;
+            left: -12px;
+            transform: translateY(-50%) scale(0) rotate(-90deg);
+            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.2s;
+        }
+
+        .nature-btn.leaf:hover::before {
+            opacity: 1;
+            transform: translateY(-50%) scale(1) rotate(0deg);
+            animation: leaf-flutter 2.5s ease-in-out infinite alternate;
+        }
+
+        .nature-btn.leaf::after {
+            content: '✨';
+            width: auto;
+            height: auto;
+            background: none;
+            font-size: 10px;
+            top: 20%;
+            right: 20%;
+        }
+
+        /* GARDEN THEME */
+        .nature-btn.garden {
+            border-color: #9C27B0;
+            color: #6A1B9A;
+        }
+
+        .nature-btn.garden:hover {
+            border-color: #BA68C8;
+            box-shadow: 0 8px 25px rgba(156, 39, 176, 0.3);
+        }
+
+        .nature-btn.garden::before {
+            content: '🌻';
+            width: auto;
+            height: auto;
+            background: none;
+            font-size: 18px;
+            top: -10px;
+            right: -10px;
+            transform: scale(0) rotate(-45deg);
+            transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        .nature-btn.garden:hover::before {
+            opacity: 1;
+            transform: scale(1) rotate(0deg);
+        }
+
+        .nature-btn.garden::after {
+            content: '🦋';
+            width: auto;
+            height: auto;
+            background: none;
+            font-size: 14px;
+            bottom: -8px;
+            left: -8px;
+            transform: scale(0);
+            transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.3s;
+        }
+
+        .nature-btn.garden:hover::after {
+            opacity: 1;
+            transform: scale(1);
+            animation: butterfly-flutter 3s ease-in-out infinite;
+        }
+
+        /* ANIMATIONS */
+        @keyframes sparkle-1 {
+            0%, 100% { opacity: 0; transform: scale(0); }
+            50% { opacity: 1; transform: scale(1); }
+        }
+
+        @keyframes sparkle-2 {
+            0%, 100% { opacity: 0; transform: scale(0); }
+            50% { opacity: 1; transform: scale(1); }
+        }
+
+        @keyframes flower-sway {
+            from { transform: scale(1) rotate(-5deg); }
+            to { transform: scale(1) rotate(5deg); }
+        }
+
+        @keyframes leaf-flutter {
+            from { transform: translateY(-50%) scale(1) rotate(-10deg); }
+            to { transform: translateY(-50%) scale(1) rotate(10deg); }
+        }
+
+        @keyframes butterfly-flutter {
+            0%, 100% { transform: scale(1) translateY(0); }
+            25% { transform: scale(1.1) translateY(-2px); }
+            50% { transform: scale(1) translateY(-1px); }
+            75% { transform: scale(1.1) translateY(-3px); }
+        }
+
+        .nature-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none !important;
+            box-shadow: 0 2px 8px rgba(76, 175, 80, 0.1) !important;
+        }
+
+        .nature-btn:disabled::before,
+        .nature-btn:disabled::after {
+            display: none;
+        }
+
+        /* Demo page styles */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            margin: 0;
+            padding: 40px;
+            background: linear-gradient(135deg, #e3f2fd 0%, #f1f8e9 100%);
+            min-height: 100vh;
+        }
+
+        .demo-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .demo-section {
+            background: white;
+            padding: 30px;
+            margin: 20px 0;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        h1, h2 {
+            color: #2E7D32;
+            margin-top: 0;
+        }
+
+        .code-block {
+            background: #f5f5f5;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+            margin: 15px 0;
+            overflow-x: auto;
+        }
+
+        .button-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="demo-container">
+        <div class="demo-section">
+            <h1>🌿 Nature Button Library</h1>
+            <p>A reusable CSS component library for beautiful nature-themed animated buttons. Just add classes to any button element!</p>
+        </div>
+
+        <div class="demo-section">
+            <h2>🎨 Themes</h2>
+            <div class="button-grid">
+                <button class="nature-btn">Default</button>
+                <button class="nature-btn sun">Sunny Day</button>
+                <button class="nature-btn flower">Bloom</button>
+                <button class="nature-btn leaf">Growth</button>
+                <button class="nature-btn garden">Garden Magic</button>
+            </div>
+            <div class="code-block">
+&lt;button class="nature-btn"&gt;Default&lt;/button&gt;
+&lt;button class="nature-btn sun"&gt;Sunny Day&lt;/button&gt;
+&lt;button class="nature-btn flower"&gt;Bloom&lt;/button&gt;
+&lt;button class="nature-btn leaf"&gt;Growth&lt;/button&gt;
+&lt;button class="nature-btn garden"&gt;Garden Magic&lt;/button&gt;
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>📏 Sizes</h2>
+            <div class="button-grid">
+                <button class="nature-btn sun small">Small</button>
+                <button class="nature-btn flower">Default</button>
+                <button class="nature-btn leaf large">Large</button>
+            </div>
+            <div class="code-block">
+&lt;button class="nature-btn sun small"&gt;Small&lt;/button&gt;
+&lt;button class="nature-btn flower"&gt;Default&lt;/button&gt;
+&lt;button class="nature-btn leaf large"&gt;Large&lt;/button&gt;
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>🎯 Styles</h2>
+            <div class="button-grid">
+                <button class="nature-btn sun secondary">Secondary</button>
+                <button class="nature-btn flower">Default</button>
+                <button class="nature-btn leaf primary">Primary</button>
+            </div>
+            <div class="code-block">
+&lt;button class="nature-btn sun secondary"&gt;Secondary&lt;/button&gt;
+&lt;button class="nature-btn flower"&gt;Default&lt;/button&gt;
+&lt;button class="nature-btn leaf primary"&gt;Primary&lt;/button&gt;
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>🔗 Links & Other Elements</h2>
+            <div class="button-grid">
+                <a href="#" class="nature-btn garden">Link Button</a>
+                <input type="submit" class="nature-btn sun" value="Submit">
+                <button class="nature-btn flower" disabled>Disabled</button>
+            </div>
+            <div class="code-block">
+&lt;a href="#" class="nature-btn garden"&gt;Link Button&lt;/a&gt;
+&lt;input type="submit" class="nature-btn sun" value="Submit"&gt;
+&lt;button class="nature-btn flower" disabled&gt;Disabled&lt;/button&gt;
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>🚀 How to Use</h2>
+            <ol>
+                <li>Download the <code>nature-buttons.css</code> file</li>
+                <li>Include it in your HTML: <code>&lt;link rel="stylesheet" href="nature-buttons.css"&gt;</code></li>
+                <li>Add classes to any button element:
+                    <ul>
+                        <li><strong>Base:</strong> <code>.nature-btn</code></li>
+                        <li><strong>Themes:</strong> <code>.sun</code>, <code>.flower</code>, <code>.leaf</code>, <code>.garden</code></li>
+                        <li><strong>Sizes:</strong> <code>.small</code>, <code>.large</code></li>
+                        <li><strong>Styles:</strong> <code>.primary</code>, <code>.secondary</code></li>
+                    </ul>
+                </li>
+            </ol>
+            <div class="code-block">
+/* In your CSS file */
+@import url('nature-buttons.css');
+
+/* Or link in HTML */
+&lt;link rel="stylesheet" href="nature-buttons.css"&gt;
+
+/* Then use anywhere */
+&lt;button class="nature-btn sun large primary"&gt;Click me!&lt;/button&gt;
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>✨ Features</h2>
+            <ul>
+                <li>🚫 <strong>Zero JavaScript</strong> - Pure CSS animations</li>
+                <li>📱 <strong>Responsive</strong> - Works on all devices</li>
+                <li>♿ <strong>Accessible</strong> - Proper focus states and disabled handling</li>
+                <li>🎨 <strong>Customizable</strong> - Easy to modify colors and animations</li>
+                <li>🪶 <strong>Lightweight</strong> - Small file size, big impact</li>
+                <li>🔧 <strong>Framework Agnostic</strong> - Works with React, Vue, plain HTML, etc.</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
